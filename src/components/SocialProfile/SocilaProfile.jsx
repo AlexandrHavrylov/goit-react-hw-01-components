@@ -12,11 +12,13 @@ import {
   StatQuantity,
 } from './SocilaProfile.styled';
 
+const defaultImg = 'https://i.ibb.co/rM8Wh0H/Sasha-Gavrilov.jpg';
+
 export const Profile = ({ name, tag, location, avatar, stats }) => {
   return (
     <ProfileContainer>
       <DescContainer>
-        <Avatar src={avatar} alt="Аватар пользователя" />
+        <Avatar src={avatar ?? defaultImg} alt="Аватар пользователя" />
         <Name>{name}</Name>
         <Tag>{tag}</Tag>
         <Location>{location}</Location>
@@ -24,20 +26,24 @@ export const Profile = ({ name, tag, location, avatar, stats }) => {
 
       <StatsList>
         <StatItem>
-          <StatLabel class="label">Followers</StatLabel>
-          <StatQuantity class="quantity">{stats.followers}</StatQuantity>
+          <StatLabel>Followers</StatLabel>
+          <StatQuantity>{stats.followers}</StatQuantity>
         </StatItem>
         <StatItem>
-          <StatLabel class="label">Views</StatLabel>
-          <StatQuantity class="quantity">{stats.views}</StatQuantity>
+          <StatLabel>Views</StatLabel>
+          <StatQuantity>{stats.views}</StatQuantity>
         </StatItem>
         <StatItem>
-          <StatLabel class="label">Likes</StatLabel>
-          <StatQuantity class="quantity">{stats.likes}</StatQuantity>
+          <StatLabel>Likes</StatLabel>
+          <StatQuantity>{stats.likes}</StatQuantity>
         </StatItem>
       </StatsList>
     </ProfileContainer>
   );
+};
+
+Profile.defaultProps = {
+  avatar: 'https://i.ibb.co/6b9dSwF/Sasha-Gavrilov.jpg',
 };
 
 Profile.propTypes = {

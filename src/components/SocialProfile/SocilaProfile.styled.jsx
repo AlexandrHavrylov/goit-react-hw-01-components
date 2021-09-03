@@ -19,7 +19,7 @@ export const DescContainer = styled.div`
 export const Avatar = styled.img`
   display: block;
   border-radius: 50%;
-  width: 100px;
+  width: 200px;
   margin-right: auto;
   margin-left: auto;
 `;
