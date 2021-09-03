@@ -1,30 +1,42 @@
 import PropTypes from 'prop-types';
+import {
+  ProfileContainer,
+  DescContainer,
+  Avatar,
+  Name,
+  Tag,
+  Location,
+  StatsList,
+  StatItem,
+  StatLabel,
+  StatQuantity,
+} from './SocilaProfile.styled';
 
 export const Profile = ({ name, tag, location, avatar, stats }) => {
   return (
-    <div class="profile">
-      <div class="description">
-        <img src={avatar} alt="Аватар пользователя" class="avatar" />
-        <p class="name">{name}</p>
-        <p class="tag">{tag}</p>
-        <p class="location">{location}</p>
-      </div>
+    <ProfileContainer>
+      <DescContainer>
+        <Avatar src={avatar} alt="Аватар пользователя" />
+        <Name>{name}</Name>
+        <Tag>{tag}</Tag>
+        <Location>{location}</Location>
+      </DescContainer>
 
-      <ul class="stats">
-        <li>
-          <span class="label">Followers</span>
-          <span class="quantity">{stats.followers}</span>
-        </li>
-        <li>
-          <span class="label">Views</span>
-          <span class="quantity">{stats.views}</span>
-        </li>
-        <li>
-          <span class="label">Likes</span>
-          <span class="quantity">{stats.likes}</span>
-        </li>
-      </ul>
-    </div>
+      <StatsList>
+        <StatItem>
+          <StatLabel class="label">Followers</StatLabel>
+          <StatQuantity class="quantity">{stats.followers}</StatQuantity>
+        </StatItem>
+        <StatItem>
+          <StatLabel class="label">Views</StatLabel>
+          <StatQuantity class="quantity">{stats.views}</StatQuantity>
+        </StatItem>
+        <StatItem>
+          <StatLabel class="label">Likes</StatLabel>
+          <StatQuantity class="quantity">{stats.likes}</StatQuantity>
+        </StatItem>
+      </StatsList>
+    </ProfileContainer>
   );
 };
 
